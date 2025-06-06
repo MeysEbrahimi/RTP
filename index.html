@@ -3,63 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Built with jdoodle.ai - A simple app to practice reflective thinking in a structured way, helping you develop self-awareness and growth." />
-    <meta name="og:description" content="Built with jdoodle.ai - A simple app to practice reflective thinking in a structured way, helping you develop self-awareness and growth." />
-    <meta name="twitter:description" content="Built with jdoodle.ai - A simple app to practice reflective thinking in a structured way, helping you develop self-awareness and growth." />
-    <meta name="og:title" content="Reflective Thinking Practice | Develop Self-Awareness" />
-    <meta name="twitter:title" content="Reflective Thinking Practice | Develop Self-Awareness" />
-    <meta name="og:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/b9e70c93j5747j4cccjb8b2je056c65237d2/public" />
-    <meta name="twitter:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/b9e70c93j5747j4cccjb8b2je056c65237d2/public" />
+    <meta name="description" content="Reflective Thoughts help you explore your experiences and emotions in depth, promoting awareness and growth." />
+    <meta name="og:title" content="Reflective Thinking Practice | Self-Awareness Tool" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>Reflective Thinking Practice</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind (CDN for now) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      #welcome-screen {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        padding: 20px;
-        background-color: #f4f4f4;
-      }
-      #welcome-screen h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-      }
-      #welcome-screen p {
-        max-width: 500px;
-        margin: 4px 0;
-        font-size: 16px;
-        color: #333;
-      }
-      #welcome-screen button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #333;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
       }
     </style>
   </head>
-  <body>
+  <body class="bg-white text-gray-800">
+    
     <!-- Welcome Screen -->
-    <div id="welcome-screen">
-      <h1>Welcome to Reflective Thinking Practice</h1>
-      <p>Reflective Thoughts help you understand your experiences and emotions more deeply.</p>
-      <p>This practice encourages self-awareness and personal growth through mindful reflection.</p>
-      <button onclick="continueToApp()">Continue</button>
+    <div id="welcome-screen" class="flex flex-col items-center justify-center min-h-screen bg-white px-6 text-center">
+      <h1 class="text-3xl sm:text-4xl font-semibold mb-3">Welcome to Reflective Thinking Practice</h1>
+      <p class="text-base sm:text-lg text-gray-600 max-w-xl mb-1">
+        Reflective Thoughts help you explore your experiences and emotions in depth.
+      </p>
+      <p class="text-base sm:text-lg text-gray-600 max-w-xl mb-6">
+        This practice promotes awareness, clarity, and meaningful personal growth.
+      </p>
+      <button onclick="continueToApp()" class="px-5 py-2.5 rounded-lg bg-black text-white hover:bg-gray-900 transition-colors text-sm font-medium shadow">
+        Continue
+      </button>
     </div>
 
     <!-- Main App -->
@@ -68,7 +44,7 @@
       <script type="module" src="/src/main.tsx"></script>
     </div>
 
-    <!-- JavaScript to switch views -->
+    <!-- Show App Script -->
     <script>
       function continueToApp() {
         document.getElementById('welcome-screen').style.display = 'none';
@@ -83,5 +59,6 @@
         }
       };
     </script>
+
   </body>
 </html>
