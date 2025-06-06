@@ -1,4 +1,4 @@
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,10 +15,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #welcome-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      #welcome-screen h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      #welcome-screen p {
+        max-width: 500px;
+        margin: 4px 0;
+        font-size: 16px;
+        color: #333;
+      }
+      #welcome-screen button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+      <h1>Welcome to Reflective Thinking Practice</h1>
+      <p>Reflective Thoughts help you understand your experiences and emotions more deeply.</p>
+      <p>This practice encourages self-awareness and personal growth through mindful reflection.</p>
+      <button onclick="continueToApp()">Continue</button>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-app" style="display: none;">
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </div>
+
+    <!-- JavaScript to switch views -->
+    <script>
+      function continueToApp() {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById('main-app').style.display = 'block';
+        localStorage.setItem('hasVisited', 'true');
+      }
+
+      window.onload = function () {
+        if (localStorage.getItem('hasVisited')) {
+          document.getElementById('welcome-screen').style.display = 'none';
+          document.getElementById('main-app').style.display = 'block';
+        }
+      };
+    </script>
   </body>
 </html>
-  
