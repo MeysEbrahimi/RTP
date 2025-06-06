@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Reflective Thoughts help you explore your experiences and emotions in depth, promoting awareness and growth." />
-    <meta name="og:title" content="Reflective Thinking Practice | Self-Awareness Tool" />
+    <meta property="og:title" content="Reflective Thinking Practice | Self-Awareness Tool" />
+    <meta property="og:description" content="Reflective Thoughts help you explore your experiences and emotions in depth, promoting awareness and growth." />
+    <meta property="og:image" content="https://yourdomain.com/path-to-image.jpg" /> <!-- Replace with your image URL -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reflective Thinking Practice | Self-Awareness Tool" />
+    <meta name="twitter:description" content="Reflective Thoughts help you explore your experiences and emotions in depth, promoting awareness and growth." />
     <title>Reflective Thinking Practice</title>
 
-    <!-- Tailwind (CDN for now) -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    
+
+    <!-- Custom Font -->
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -23,7 +28,7 @@
     </style>
   </head>
   <body class="bg-white text-gray-800">
-    
+
     <!-- Welcome Screen -->
     <div id="welcome-screen" class="flex flex-col items-center justify-center min-h-screen bg-white px-6 text-center">
       <h1 class="text-3xl sm:text-4xl font-semibold mb-3">Welcome to Reflective Thinking Practice</h1>
@@ -33,7 +38,11 @@
       <p class="text-base sm:text-lg text-gray-600 max-w-xl mb-6">
         This practice promotes awareness, clarity, and meaningful personal growth.
       </p>
-      <button onclick="continueToApp()" class="px-5 py-2.5 rounded-lg bg-black text-white hover:bg-gray-900 transition-colors text-sm font-medium shadow">
+      <button 
+        onclick="continueToApp()" 
+        class="px-5 py-2.5 rounded-lg bg-black text-white hover:bg-gray-900 transition-colors text-sm font-medium shadow"
+        aria-label="Start Reflective Practice"
+      >
         Continue
       </button>
     </div>
@@ -44,18 +53,27 @@
       <script type="module" src="/src/main.tsx"></script>
     </div>
 
-    <!-- Show App Script -->
+    <!-- JavaScript for Navigation -->
     <script>
       function continueToApp() {
-        document.getElementById('welcome-screen').style.display = 'none';
-        document.getElementById('main-app').style.display = 'block';
-        localStorage.setItem('hasVisited', 'true');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainApp = document.getElementById('main-app');
+
+        if (welcomeScreen && mainApp) {
+          welcomeScreen.style.display = 'none';
+          mainApp.style.display = 'block';
+          localStorage.setItem('hasVisited', 'true');
+        }
       }
 
       window.onload = function () {
-        if (localStorage.getItem('hasVisited')) {
-          document.getElementById('welcome-screen').style.display = 'none';
-          document.getElementById('main-app').style.display = 'block';
+        const hasVisited = localStorage.getItem('hasVisited') === 'true';
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainApp = document.getElementById('main-app');
+
+        if (hasVisited && welcomeScreen && mainApp) {
+          welcomeScreen.style.display = 'none';
+          mainApp.style.display = 'block';
         }
       };
     </script>
